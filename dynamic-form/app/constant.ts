@@ -15,4 +15,5 @@ export const API_ROUTE = {
   FORM_LIST: "http://localhost:3001/form/list",
   GET_FORM_BY_URL: "http://localhost:3001/form",
   CREATE_FORM: "http://localhost:3001/form/create",
+  FORM_RESPONSE: "http://localhost:3001/form-response",
 };

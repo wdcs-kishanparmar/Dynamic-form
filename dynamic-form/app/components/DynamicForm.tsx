@@ -94,7 +94,9 @@ const DynamicForm = () => {
         </label> */}
         <button
           onClick={saveForm}
-          className="bg-blue-500 text-white p-2 m-2 cursor-pointer"
+          className={`bg-blue-500 text-white p-2 m-2 ${
+            !questions.length ? "cursor-not-allowed" : "cursor-pointer"
+          }`}
           disabled={!questions.length}
         >
           Save Form

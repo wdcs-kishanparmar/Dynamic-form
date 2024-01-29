@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { API_ROUTE, ERROR_MESSAGE } from "../../constant";
-import { FormData, FormPageProps } from "../../interface";
+import { FormData, FormField, FormPageProps } from "../../interface";
 import Link from "next/link";
 
 const FormPage = (props: FormPageProps) => {

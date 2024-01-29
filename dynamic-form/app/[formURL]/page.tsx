@@ -38,10 +38,23 @@ const FormPage = (props: FormPageProps) => {
     }));
   };
 
-  const submitAnswer = (e: any) => {
+  /*   const submitAnswer = (e: any) => {
     e.preventDefault();
     router.push(`${formData?.formURL}/form-responce`);
     console.log("formValues", formValues);
+  };
+ */
+  const submitAnswer = async (e: any) => {
+    e.preventDefault();
+    try {
+      await axios.post(`${API_ROUTE.FORM_RESPONSE}`, {
+        formURL: formData?.formURL,
+        responses: formValues,
+      });
+      router.push(`${formData?.formURL}/form-responce`);
+    } catch (error) {
+      console.error("Forms response error", error);
+    }
   };
   const clearForm = () => {
     console.log("Inn clear form");
@@ -82,8 +95,8 @@ const FormPage = (props: FormPageProps) => {
                   )}
                   {field.answerType === "Multichoice Checkbox" && (
                     <div>
-                      {field.choices.map((choice: any, choiceIndex: number) => (
-                        <div key={choiceIndex} className="pt-3">
+                      {field.choices.map((choice: any, index: number) => (
+                        <div key={index} className="pt-3">
                           <input
                             type="checkbox"
                             name={field.title.toLowerCase().replace(" ", "_")}
@@ -105,12 +118,9 @@ const FormPage = (props: FormPageProps) => {
                   )}
                   {field.answerType === "Single Select radio" && (
                     <div>
-                      {field.choices.map((choice: any, choiceIndex: number) => (
+                      {field.choices.map((choice: any, index: number) => (
                         <>
-                          <div
-                            key={choiceIndex}
-                            className="block pt-3  space-x-4"
-                          >
+                          <div key={index} className="block pt-3  space-x-4">
                             <input
                               type="radio"
                               name={field.title.toLowerCase().replace(" ", "_")}
