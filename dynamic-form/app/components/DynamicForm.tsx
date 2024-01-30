@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import ProfileDilogBox from "./AddQuestions";
 import { API_ROUTE, ROUTE } from "../constant";
 import { Question } from "../interface";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 const DynamicForm = () => {
   const [formName, setFormName] = useState("");
@@ -17,6 +18,8 @@ const DynamicForm = () => {
   const [isQuestionRequired, setIsQuestionRequired] = useState(false);
 
   const router = useRouter();
+  const session = useSession();
+  console.log("session", session);
 
   const openModal = () => {
     setIsOpen(true);
@@ -71,6 +74,7 @@ const DynamicForm = () => {
           <input
             type="text"
             value={formName}
+            placeholder="Enter your form name"
             onChange={(e) => setFormName(e.target.value)}
             className="ml-2 p-2 border border-gray-300 rounded"
           />
@@ -107,6 +111,9 @@ const DynamicForm = () => {
         >
           Form Listing
         </button>
+
+        <button onClick={() => signIn("google")}>Login </button>
+        <button onClick={() => signOut()}>Logout </button>
 
         {questions.length ? (
           <>

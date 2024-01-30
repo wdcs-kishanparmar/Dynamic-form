@@ -89,7 +89,7 @@ const page = () => {
   return (
     <>
       <div className="max-w-[60rem] mx-auto text-center">
-        <h1 className="text-center text-3xl font-bold mb-4 pt-12 pb-9">
+        <h1 className="text-center text-3xl font-bold mb-4 pt-12">
           Form Listing
         </h1>
         <div className="flex justify-end mb-4">
@@ -129,7 +129,7 @@ const page = () => {
                     <button
                       type="button"
                       onClick={() => downloadExcel(form?.formURL)}
-                      className="flex items-center  underline font-medium rounded px-4 py-2 hover:text-blue-500"
+                      className="flex items-center  hover:underline font-medium rounded px-4 py-2 hover:text-blue-500"
                       title="Sends responses to a spreadsheet"
                     >
                       <Image src={XL} alt="XL Logo" width={40} height={40} />

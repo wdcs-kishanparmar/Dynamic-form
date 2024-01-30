@@ -6,6 +6,8 @@ export interface Form {
 }
 
 export interface FormData {
+  some(arg0: (response: any) => boolean): unknown;
+  map(arg0: (field: any, index: number) => any): import("react").ReactNode;
   formName: string;
   createdAt: string;
   formURL: string;

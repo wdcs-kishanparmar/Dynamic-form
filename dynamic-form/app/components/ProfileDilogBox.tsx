@@ -1,7 +1,7 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 
-const ProfileDilogBox = ({ setModalopen }: any) => {
+export const ProfileDilogBox = ({ setModalopen }: any) => {
   const {
     question,
     setAnswerType,
@@ -158,5 +158,3 @@ const ProfileDilogBox = ({ setModalopen }: any) => {
     </>
   );
 };
-
-export default ProfileDilogBox;
